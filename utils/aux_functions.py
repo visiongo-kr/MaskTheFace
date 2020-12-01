@@ -359,13 +359,13 @@ def mask_face(image, face_location, six_points, angle, args, type="surgical"):
     img_bg = cv2.bitwise_and(image, image, mask=mask_inv)
     img_fg = cv2.bitwise_and(dst_mask, dst_mask, mask=mask)
     out_img = cv2.add(img_bg, img_fg[:, :, 0:3])
-    if "empty" in type or "inpaint" in type:
-        out_img = img_bg
+    # if "empty" in type or "inpaint" in type:
+    #     out_img = img_bg
     # Plot key points
 
-    if "inpaint" in type:
-        out_img = cv2.inpaint(out_img, mask, 3, cv2.INPAINT_TELEA)
-        # dst_NS = cv2.inpaint(img, mask, 3, cv2.INPAINT_NS)
+    # if "inpaint" in type:
+    #     out_img = cv2.inpaint(out_img, mask, 3, cv2.INPAINT_TELEA)
+    #     # dst_NS = cv2.inpaint(img, mask, 3, cv2.INPAINT_NS)
 
     if debug:
         for i in six_points:
@@ -677,7 +677,8 @@ def print_orderly(str, n):
 
 
 def display_MaskTheFace():
-    with open("utils/display.txt", "r") as file:
-        for line in file:
-            cc = 1
-            print(line, end="")
+    cc = 1
+    # with open("utils/display.txt", "r") as file:
+    #     for line in file:
+    #         cc = 1
+    #         print(line, end="")
